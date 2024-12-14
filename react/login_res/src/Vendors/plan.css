@@ -1,0 +1,87 @@
+#Price_Plan{
+	
+    background: #ffffff;
+        
+   
+    }
+    .planbox{
+        margin-left: 200px;
+    }
+    .planboxVendor{
+        background: #235495;
+    padding: 30px;
+    
+
+
+    }
+    .choosepara{
+        color:white;
+        font-size:20px;
+
+    }
+    .pricePlanTitle {
+        margin: auto;
+        text-align: center;
+    }
+    .pricePlanTitle h1 {
+        color: #000000;
+        padding: 10px 0px;
+    }
+    .pricePlanTitle p {
+        font-size: 16px;
+        color: #828383;
+    }
+    .pricePlanTitle hr {
+        background: #0469a3;
+        height: 2px;
+        width: 70px;
+    }
+    /*Our Paln*/
+    .our_Plan {
+        padding:35px 20px;
+        margin: 30px 0px;
+        background-color: white;
+        border: 5px solid #71cbfd;
+    border-radius: 10px;
+    }
+    .our_Plan h3 {
+        padding: 10px 0px;
+        color: #272727;
+    }
+    .our_Plan span {
+        font-size: 20px;
+    }
+    .our_Plan h1 {
+        color: #000000;
+        font-size: 50px;
+    }
+    ul.Plan_list_Item {
+        list-style: none;
+        padding: 10px 0px;
+    }
+    ul.Plan_list_Item li {
+        padding: 5px 0px;
+        font-size: 18px;
+        color: #868686;
+        font-weight: 400;
+    }
+    .btn-danger{
+        background-color: red !important;
+       
+    }
+    .our_Plan button {
+       /* background: #0b6dc9;
+    
+       
+        outline: none;*/
+    }
+ 
+    .our_Plan button:hover {
+        background: #252525;
+        border: 1px solid #252525;
+    }
+    ul.Plan_list_Item i {
+        color: #004b77;
+        font-size: 12px;
+        padding: 1px 10px;
+    }

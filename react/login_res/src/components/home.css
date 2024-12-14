@@ -1,0 +1,176 @@
+.categoryimage{
+    width: 100%;
+   
+    
+ 
+}
+.categorycard{
+    align-items: center;
+    
+}
+.card-body{
+    padding:10px;
+}
+.card-title{
+    margin:0px;
+}
+.homecategory{
+    width:11%;
+}
+.categoryname{
+    font-size: 12px;
+}
+.bannerbox{
+    margin:10px;
+}
+body{
+    background:  #f5f5f5bd;
+}
+.categorysidehomeMain{
+    background-color: white;
+    border-radius:20px;
+}
+.bannerimage{
+    height:200px;
+    width:100%;
+    border-radius: 20px;
+    
+}
+.servicecard{
+    border-radius:10px;
+}
+.servicebody{
+    background-color: rgb(0, 124, 196);
+    color:white;
+    padding:15px;
+    
+
+}
+.servicename{
+    color:white;
+    font-size: 15px;
+}
+.serviceSection{
+   margin:20px 50px;
+}
+.productcardHome{
+    width:16.66%;
+    padding-left:0px;
+}
+.homeproductimage{
+    border-bottom: 1px solid #ededed;
+}
+
+.productSection{
+    text-align:left;
+}
+.ellipsis2{
+    overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+ 
+}
+.viewnumber-btn{
+    display: inline-block;
+    text-decoration: none;
+    background: #f1f1f1;
+    color: #000000;
+    font-weight: 700;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    width: 100%;
+    position: relative;
+    bottom: 0%;
+    margin-top: 10%;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    width:100%;
+    position: relative;
+    bottom:0%;
+    margin-top: 10%;
+}
+.submit-btn{
+    width:100%;
+    position: relative;
+    bottom:0%;
+    margin-top: 5%;
+}
+.twosechome{
+    margin: 20px;
+}
+.topsell{
+    background: #efefef;
+    margin: 10px;
+    width:48%;
+}
+
+.topsell h4{
+    margin:20px;
+    text-align:left;
+}
+.topsell .slick-prev {
+    width: 20px;
+    left: 0;
+    top: 50%;
+    position: absolute;
+    height: 20px;
+    background: rgb(201, 201, 201);
+    z-index: 1;
+    color:black;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  
+  .topsell .slick-next {
+    width: 20px;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    height: 20px;
+    background: rgb(201, 201, 201);
+    z-index: 1;
+    border-radius: 50%;
+    color:black;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  .productnameTwo{
+    font-size:18px;
+    text-align: left;
+  }
+  .locationbox{
+    background:white;
+        border-radius: 10px;
+    padding: 20px;
+   width: 90%;
+    
+  }
+  .searchform{
+    padding:20px;
+    background-color:#9be8ff7a;
+    display: flex;
+  }
+  .searchfield{
+    flex:0.9;
+    border-radius: 10px 0px 0px 10px;
+  }
+  .setlocation{
+    color:white;
+    background-color: #00aee3;
+    border-radius: 0px 10px 10px 0px;
+  }
+  .topcate-card{
+    padding: 5px;
+  background: #cfcfcf;
+  color: #3f3e3e;
+  text-decoration: none;
+  border-radius: 5px;
+  margin:50px  10px;
+}
+.topcategory{
+    margin-top: 20px;
+    display: inline-block;
+}

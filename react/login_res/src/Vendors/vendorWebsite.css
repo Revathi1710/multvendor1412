@@ -1,0 +1,73 @@
+.vendorwebsite{
+        text-align: left;
+}
+.vendorwebsite{
+    background-color: white;
+    margin: 20px 50px;
+    padding:20px;
+}
+.phone-link
+{
+    color: black;
+    text-decoration: none;
+    border: 2px solid #2f7f04;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    border-radius:5px;
+} 
+#phonevendor{
+    margin: 0px 10px;
+    color: #2f7f04;
+} 
+.vendor-menu {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .vendor-menu ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    background: #d3d3d3;
+
+  }
+  
+  .vendor-menu ul li {
+    display: inline-block;
+    margin: 0 15px;  /* Adjust spacing between menu items */
+  }
+  
+  .vendor-menu ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;  /* Adjust text color */
+    transition: color 0.3s ease;  /* Smooth color change on hover */
+  }
+  
+  .vendor-menu ul li a:hover {
+    color: #007bff;  /* Change color on hover */
+  }
+  .vwproductcard{
+    background: #000000d4;
+    color: white;
+    padding: 20px;
+    opacity: 0.9;
+  }
+  ul li a{
+    text-decoration: none;
+    color: black;
+  }
+  .contactform{
+    padding: 10px;
+    background: #58b4b9;
+    border-radius: 10px;
+  }
+  /* Add extra spacing for phone link */
+ 
+  
+ 
+  
+  

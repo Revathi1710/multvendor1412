@@ -1,0 +1,35 @@
+.servicecard{
+
+}
+.serviceCard{
+    background-color: white;
+    margin: 10px;
+}
+.servicesubmit-btn{
+    background: #0073c2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+.card-body{
+    text-align: left;
+}
+.location{
+    font-size: 16px;
+    font-weight: 500;
+    color: gray;
+    margin-bottom: 20px;
+}
+.callservice{
+    background: #00ac86;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 10px;
+}
+.callservice i{
+    font-size:20px;
+    margin:5px 0px;
+}

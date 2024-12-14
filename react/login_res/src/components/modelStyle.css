@@ -1,0 +1,37 @@
+.modal.show .modal-dialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.modal-content{
+    width:800px;
+}
+.modal-dialog{
+    max-width:100%;
+}
+.quanity{
+    width: 20%;
+}
+.yourinfo{
+    margin-top: 80px;
+}
+.enquiry-btn{
+    display: inline-block;
+    text-decoration: none;
+    background: #0073c2;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+  position: relative;
+    bottom: 0%;
+    margin-top: 5%;
+    border: none;
+  
+   
+}
+.imageside{
+    background-color: #e5e5e5;
+}

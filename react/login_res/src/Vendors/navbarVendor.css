@@ -1,0 +1,72 @@
+/* navbar.css */
+.navbar-logo {
+    /*max-height: 80px;
+    margin-right: 10px;
+    position: absolute;
+    top:1px;
+    left:20px;*/
+    width:100%;
+  }
+ 
+  .navbar{
+    background-color:white;
+    border-bottom: 1px solid rgb(223, 222, 222);
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #333; /* Adjust as needed */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #007bff; /* Adjust hover color */
+  }
+  
+  .form-inline {
+    margin-right: 20px; /* Adjust space between search bar and other elements */
+  }
+  
+ .searchheader{
+    position:absolute;
+    left: 61%;
+    top: 30%;
+    color: #858585;
+
+ }
+/* .container1{
+    padding:10px 0px;
+    width:100%;
+ }*/
+  .menulist{
+    display:flex;
+   justify-content: space-evenly;
+   list-style: none;
+  }
+ .nav-link{
+    
+    color:black;
+    font-size: 15px;
+ }
+ .iconsheader{
+    height:25px;
+    width:25px;
+    display:block;
+    font-size: 20px;
+    margin-bottom: 0px;
+   
+ }
+ .upgradeDetails{
+    text-align:right;
+   
+ }
+ .upgradeBtn{
+    text-decoration: none;
+    color:white;
+    background-color: #333;
+    padding:10px;
+    border-radius: 10px;
+   
+    margin-top: 5px;
+    display: inline-block;
+ }

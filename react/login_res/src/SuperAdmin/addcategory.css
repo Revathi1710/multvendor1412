@@ -1,0 +1,63 @@
+/*.add-category-container {
+    display: flex;
+  }*/
+  
+  .add-category-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px; /* Adjust based on Sidebar width */
+    margin-top:20px;
+  }
+  
+  .page-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .image-preview{
+    text-align: left;
+  }
+  .message {
+    color: #d9534f; /* Red color for error messages */
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  label{
+    text-align: left;
+    display:block;
+    padding:10px 0px;
+    font-weight: 700;
+  }
+  #description{
+    height: 200px;
+  }
+  
+  .category-form {
+   
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 32%);
+  }
+  
+
+  
+  
+  .status-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .submit-btn {
+    background:#0073c2;
+    
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  

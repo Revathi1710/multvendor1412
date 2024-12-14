@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+@import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css');
+
+.sidebar-toggle {
+  margin-left: -240px;
+}
+.header{
+    
+    background:#2a628d;
+    color:white;
+    text-align:end;
+    padding:10px;
+    
+
+}
+.Vendorprofile{
+  height: 30px;
+  width: 30px;
+  margin: 0px 10px;
+}
+.vendorsidebarmenu{
+  margin-left: 10px;
+}
+
+.profileDetails
+{
+  position: absolute;
+top: 10%;
+right: 20px;
+background: white;
+box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+width: 50vh;
+height: 50vh;
+border-radius: 20px;
+}
+.Vendorprofile2{
+  height:100px;
+  width:100px;
+  margin:20px;
+}
+.profileName{
+  font-weight: bold;
+}
+.profileedit{
+  list-style: none;
+  margin:10px;
+}
+.profileedit li{
+  padding:6px;
+  text-align: left;
+}
+.profileedit li a{
+  text-decoration: none;
+  color:black;
+}
+.profileEditlist i{
+  margin:0px 10px;
+  color: #0073c2;
+}
+.headermenu{
+  margin:0px 20px;
+}
+.fa-angle-down{
+    margin:0px 10px;
+}
+.sidebar {
+  width: 240px;
+  height: 100%;
+  
+  background: linear-gradient(292deg, rgba(113,239,247,1) 29%, rgba(0,115,194,1) 100%);
+
+  text-align: left;
+  position: fixed;
+  top:0px;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  z-index: 100;
+  #leftside-navigation {
+    ul, ul ul {
+      margin: -2px 0 0;
+      padding: 0;
+    }
+    ul {
+      li {
+        list-style-type: none;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+        &.active {
+          & > a {
+            color: #000000;
+          }
+          ul {
+            display: block;
+          }
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            padding: 18px 0 18px 25px;
+            font-size: 14px;
+            font-weight:900;
+            outline: 0;
+            
+          -webkit-transition: all 200ms ease-in;
+          -moz-transition: all 200ms ease-in;
+          -o-transition: all 200ms ease-in;
+          -ms-transition: all 200ms ease-in;
+          transition: all 200ms ease-in;
+          &:hover {
+            color: #c4c4c4;
+          }
+          span {
+            display: inline-block;
+          }
+          i {
+            width: 20px;
+            .fa-angle-left, .fa-angle-right {
+              padding-top: 3px;
+            }
+          }
+        }
+      }
+    }
+    ul ul {
+      display: none;
+      li {
+        background:white;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        border-right:2px solid #71eff7;
+        a {
+          font-size: 12px;
+          padding-top: 13px;
+          padding-bottom: 13px;
+          color: #aeb2b7;
+        }
+      }
+    }
+  }
+}

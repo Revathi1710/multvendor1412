@@ -1,0 +1,63 @@
+.allpagebox{
+    margin: 10px;
+}
+.pagelist{
+    padding: 20px;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+    width:31%;
+    height: 150px;
+}
+.webpageicon{
+    font-size: 35px;
+}
+.pagetitle{
+    text-align: center;
+}
+.aboutdescription{
+    line-height: 30px;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.aboutdetailSection{
+    padding: 20px;
+}
+.aboutdetails{
+    display: flex;
+}
+.getTouch{
+    background-color: rgb(10, 28, 129);
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+.footer-menu li {
+   padding: 4px;
+   font-weight: 500;
+   font-size: 20px;
+}
+.ourCompany{
+    font-weight: 600;
+}
+.companymenu{
+    margin: 10px;
+}
+.footerReach{
+    padding: 10px;
+}
+.footerReach i{
+    margin: 0px 10px;
+    font-size: 15px;
+}
+#formfooter{
+    background: #e5e5e5;
+    padding: 20px;
+}
+.requireTextarea{
+    height: 120px;
+}

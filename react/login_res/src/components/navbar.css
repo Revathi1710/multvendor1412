@@ -1,0 +1,84 @@
+/* navbar.css */
+.navbar-logo {
+   /* max-height: 80px;
+    margin-right: 10px;
+    position: absolute;
+    top: -20px;
+    left:20px;*/
+    width:100%;
+  }
+  .navbar{
+    background-color:#006a9f;
+  }
+  .header-row{
+    align-items: center;
+    align-content: center;
+  }
+
+
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #333; /* Adjust as needed */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #007bff; /* Adjust hover color */
+  }
+  
+  .form-inline {
+    margin-right: 20px; /* Adjust space between search bar and other elements */
+  }
+  
+ .searchheader{
+    
+    position:absolute;
+    left: 61%;
+    top: 30%;
+    color: #858585;
+ }
+ .headerinputfield{
+  padding: .55rem .75rem;
+ }
+ .container1{
+    padding:10px 50px;
+    width:100%;
+ }
+  .menulist{
+    display:flex;
+  justify-content: space-evenly;
+   list-style: none;
+  }
+  .nav-item,.nav-link{
+    justify-items: center;
+  }
+ .nav-link{
+    font-weight: 500;
+    color:White;
+    font-size: 16px;
+ }
+ .iconsheader{
+    height:25px;
+    width:25px;
+    display:block;
+   margin-bottom: 5px;
+    font-size: x-large;
+    color: #3b937a;
+ }
+ .spanlogo{
+  display: block;
+    color: rgb(255 147 106);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 12px;
+
+ }
+ .logoname{
+  font-size: 25px;
+  font-weight: 600;
+  color: #3b937a;
+  height: 15px;
+ }
+ a:hover{
+  text-decoration: none !important;
+ }
