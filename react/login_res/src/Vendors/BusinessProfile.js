@@ -54,7 +54,7 @@ const UpdateProfileVendor = () => {
       return;
     }
 
-    axios.post(`${process.env.REACT_APP_API_URL}/vendorData`, { vendortoken })
+    axios.post(`http://localhost:5000/vendorData`, { vendortoken })
       .then(response => {
         if (response.data.status === 'ok') {
           setVendorData(response.data.data);
@@ -109,7 +109,7 @@ const UpdateProfileVendor = () => {
     e.preventDefault();
     const vendortoken = window.localStorage.getItem('vendortoken');
     const vendorId = window.localStorage.getItem('vendorId');
-    axios.put(`${process.env.REACT_APP_API_URL}/BusinessProfile`, vendorData, {
+    axios.put(`http://localhost:5000/BusinessProfile`, vendorData, {
       headers: { 'Authorization': `Bearer ${vendortoken} `}
     })
     .then(response => {

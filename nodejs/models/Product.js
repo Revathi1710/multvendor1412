@@ -16,7 +16,7 @@ const productSchema = new Schema({
   galleryimage4: { type: String },
   active: { type: Boolean, default: true },
  feature: { type: Boolean, default: false},
-  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true }, 
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Maincategory', required: true }, 
   subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'SubCategory', required: true }// Reference to Category schema// Ensure the category field is included and required
 }, { timestamps: true });
 

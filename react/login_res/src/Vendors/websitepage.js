@@ -1,90 +1,86 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import VendorHeader from './vendorHeader'; // Ensure the correct capitalization
-import './websitepage.css'; // Ensure the correct file reference
+import VendorHeader from './vendorHeader'; // Ensure correct capitalization and path
+import './websitepage.css'; // Ensure correct file reference
 
 const WebsitePages = () => {
   const [vendorData, setVendorData] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const vendortoken = window.localStorage.getItem('vendortoken');
-    
-    if (!vendortoken) {
-      setError('No token found');
+    const vendorId = localStorage.getItem('vendorId');
+    const vendortoken = localStorage.getItem('vendortoken');
+
+    if (!vendorId || !vendortoken) {
+      setError('Vendor ID or token not found in local storage');
+      setLoading(false);
       return;
     }
 
-    axios.post(`${process.env.REACT_APP_API_URL}/vendorData`, { vendortoken })
+    axios
+      .post('http://localhost:5000/vendorData', { vendortoken })
       .then(response => {
         if (response.data.status === 'ok') {
           setVendorData(response.data.data);
         } else {
-          setError(response.data.message);
+          setError(response.data.message || 'Failed to fetch vendor data');
         }
       })
-      .catch(error => {
-        console.error('Error:', error);
-        setError(error.message);
-      });
+      .catch(err => {
+        setError(err.message || 'An error occurred while fetching vendor data');
+      })
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
-  if (!vendorData) {
-    return <div>Loading...</div>;
-  }
+  const { businessSlug } = vendorData || {};
 
-  const businessSlug  = vendorData.businessSlug ;
-
-  const homepagesetup = () => {
-    window.location.href = `/Vendor/Homepage`;
-  };
-
-  const aboutpagesetup = () => {
-    window.location.href = `/Vendor/AboutPage`;
-  };
-
-  const awardpagesetup = () => {
-    window.location.href = `/Vendor/Awards`;
+  const navigateToPage = (path) => {
+    navigate(path);
   };
 
   return (
     <div>
       <VendorHeader />
       <p>
-        Business URL: 
-        <a href={`/${businessSlug }`} target='_blank'>
-          {`https://localhost:3000/${businessSlug }`}
-        </a>
+        Business URL:{' '}
+        {businessSlug ? (
+          <a href={`/${businessSlug}`} target="_blank" rel="noopener noreferrer">
+            {`https://localhost:3000/${businessSlug}`}
+          </a>
+        ) : (
+          'N/A'
+        )}
       </p>
-      
+
       <div className="row allpagebox">
-        <div className="col-sm-4 pagelist" onClick={homepagesetup}>
-          <div className='webpageicon'>
+        <div className="col-sm-4 pagelist" onClick={() => navigateToPage('/Vendor/Homepage')}>
+          <div className="webpageicon">
             <i className="fas fa-home"></i>
           </div>
-          <div className='webpagename'>
-            Home
-          </div>
+          <div className="webpagename">Home</div>
         </div>
-        <div className="col-sm-4 pagelist" onClick={aboutpagesetup}>
-          <div className='webpageicon'>
+        <div className="col-sm-4 pagelist" onClick={() => navigateToPage('/Vendor/AboutPage')}>
+          <div className="webpageicon">
             <i className="fas fa-users"></i>
           </div>
-          <div className='webpagename'>
-            About
-          </div>
+          <div className="webpagename">About</div>
         </div>
-        <div className="col-sm-4 pagelist" onClick={awardpagesetup}>
-          <div className='webpageicon'>
+        <div className="col-sm-4 pagelist" onClick={() => navigateToPage('/Vendor/Awards')}>
+          <div className="webpageicon">
             <i className="fas fa-award"></i>
           </div>
-          <div className='webpagename'>
-            Awards & Memberships
-          </div>
+          <div className="webpagename">Awards & Memberships</div>
         </div>
         {/* Add more page icons as necessary */}
       </div>

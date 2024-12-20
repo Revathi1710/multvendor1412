@@ -17,7 +17,7 @@ const AllCategory = () => {
   const [message, setMessage] = useState('');
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [vendorData, setVendorData] = useState({ selectType: '' }); // Define vendorData state
-
+  const [categoryCount, setCategoryCount] = useState(0); 
   const handleSubMenuToggle = (index) => {
     setActiveSubMenu(activeSubMenu === index ? null : index);
   };
@@ -45,7 +45,7 @@ const AllCategory = () => {
         setMessage(error.message);
       });
     // Fetch categories
-    fetch(`${process.env.REACT_APP_API_URL}/getVendorCategory`, {
+    fetch(`http://localhost:5000/getVendorCategory`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -64,8 +64,21 @@ const AllCategory = () => {
         console.error('Fetch error:', error);
         setMessage('Error fetching categories');
       });
+  
+ 
+    axios.post(`http://localhost:5000/getVendorCategorycount`, { vendorId })
+      .then(response => {
+        if (response.data.status === 'ok') {
+          setCategoryCount(response.data.data.categoryCount); // Set the count
+        } else {
+          setMessage('Error fetching category count: ' + response.data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching category count:', error);
+        setMessage('Error fetching category count');
+      });
   }, []);
-
   const handleUpdate = (categoryId) => {
     window.location.href = `/Vendor/UpdateCategory/${categoryId}`;
   };
@@ -159,7 +172,7 @@ const AllCategory = () => {
           <div >
             <h2 className='title-vendorInfo'>All Categories</h2>
             <div className='total_addbtn'>
-            <span>5 Categories</span>
+            <span>{categoryCount} Categories</span> 
             <Link to="/Vendor/AddCategory" className='btn addbtn'>Add New Category</Link>
             </div>
             {message && <p>{message}</p>}
@@ -190,7 +203,7 @@ const AllCategory = () => {
           <span className='pending-items'>
           {category.active ? 'Active' : 'Inactive'}
             </span>
-          <span className='category-items'>  {category.categoryId?.name || 'Unknown Category'} {/* Display the name */}</span>
+          <span className='category-items'>  {category.MainCategoryId?.name || 'Unknown Category'} {/* Display the name */}</span>
         </div>
         <div className="edit-deleteflex">
           <button

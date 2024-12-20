@@ -20,7 +20,7 @@ const Allproducts = () => {
   const [error, setError] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [vendorData, setVendorData] = useState({ selectType: '' }); // Define vendorData state
-
+  const [productCount, setproductCount] = useState(0); 
   useEffect(() => {
     const vendorId = localStorage.getItem('vendorId');
     if (!vendorId) {
@@ -44,7 +44,7 @@ const Allproducts = () => {
         setError(error.message);
       });
 
-    fetch(`${process.env.REACT_APP_API_URL}/getVendorProduct`, {
+    fetch(`http://localhost:5000/getVendorProduct`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +64,20 @@ const Allproducts = () => {
       console.error('Fetch error:', error);
       setMessage('Error fetching products');
     });
-  }, []);
+
+  axios.post(`http://localhost:5000/getVendorProductcount`, { vendorId })
+  .then(response => {
+    if (response.data.status === 'ok') {
+      setproductCount(response.data.data.productCount); // Set the count
+    } else {
+      setMessage('Error fetching category count: ' + response.data.message);
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching category count:', error);
+    setMessage('Error fetching category count');
+  });
+}, []);
 
   const handleUpdate = (productId) => {
     window.location.href = `/Vendor/UpdateProduct/${productId}`;
@@ -165,7 +178,7 @@ const Allproducts = () => {
           <div >
             <h2 className='title-vendorInfo'>All Products</h2>
             <div className='total_addbtn'>
-            <span>5 Product</span>
+            <span>{productCount} Product</span> 
             <Link to="/Vendor/AddProductVendor" className='btn addbtn'>Add New Product</Link>
             </div>
             {message && <p>{message}</p>}
@@ -193,10 +206,22 @@ const Allproducts = () => {
         </div>
         <div className="product-details">
           <h5>{product.name}</h5>
+          <s>₹{product.originalPrice}</s>
+          <span className='m-2'>₹{product.sellingPrice}</span>
+          <div>
           <span className='pending-items'>
           {product.active ? 'Active' : 'Inactive'}
             </span>
-          <span className='category-items'>  {product.categoryId?.name || 'Unknown Category'} {/* Display the name */}</span>
+            <span className='category-items m-2'> 
+  {product.category?.name || 'Category Not Available'}
+</span>
+<span className='subcategory-items'> 
+  {product.subcategory?.name || 'Subcategory Not Available'}
+</span>
+</div>
+
+       
+       
         </div>
         <div className="edit-deleteflex">
           <button

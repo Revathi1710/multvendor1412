@@ -356,7 +356,7 @@ app.post("/vendorData", async (req, res) => {
     }
 });
 app.post('/addcategoryVendor', upload.single('image'), async (req, res) => {
-  const { name, slug, description, active, vendorId, category } = req.body;
+  const { name, slug, description, active, vendorId, MainCategoryId } = req.body;
   const image = req.file ? req.file.filename : '';
 
   // Convert active to boolean
@@ -367,12 +367,12 @@ app.post('/addcategoryVendor', upload.single('image'), async (req, res) => {
 
   try {
       // Validate input
-      if (!name || !slug || !description || !vendorId || !category) {
+      if (!name || !slug || !description || !vendorId || !MainCategoryId) {
           return res.status(400).send({ status: "error", message: "All fields are required" });
       }
 
       // Create new category
-      await Category.create({ name, slug, description, active: isActive, vendorId, category, image });
+      await Category.create({ name, slug, description, active: isActive, vendorId,MainCategoryId, image });
       res.send({ status: "ok" });
   } catch (error) {
       console.error("Error:", error);
@@ -390,21 +390,28 @@ app.post("/getVendorCategory", async (req, res) => {
       return res.status(400).send({ status: "error", message: "Invalid vendor ID format" });
     }
 
-    // Fetch categories with main category name populated
     const categories = await Category.find({ vendorId })
-      .populate('mainCategoryId', 'name') // Populates only the 'name' field from Maincategory
-      .exec();
-
-    if (categories.length === 0) {
-      return res.status(404).send({ status: 'error', message: 'No categories found' });
-    }
-
-    res.send({ status: 'ok', data: categories });
+    .populate({
+      path: 'MainCategoryId',
+      select: 'name',
+      strictPopulate: false // Temporarily bypass schema validation if needed
+    })
+    .exec();
+  
+  if (!categories.length) {
+    return res.status(404).send({ status: 'error', message: 'No categories found' });
+  }
+  
+  res.send({ status: 'ok', data: categories });
+  
   } catch (error) {
-    console.error('Error fetching categories:', error);
-    res.status(500).send({ status: 'error', message: 'Internal server error' });
+    console.error("Error fetching categories:", error.message, error.stack);
+    res.status(500).send({ status: "error", message: "Internal server error" });
   }
 });
+
+
+
 
 app.delete("/deleteCategoryVendor", async (req, res) => {
   const { categoryId } = req.body;
@@ -601,21 +608,28 @@ app.post("/addProduct", upload.fields([
 app.post("/getVendorProduct", async (req, res) => {
   const { vendorId } = req.body;
 
-
   try {
+    // Validate vendorId
     if (!mongoose.Types.ObjectId.isValid(vendorId)) {
       return res.status(400).send({ status: "error", message: "Invalid vendor ID format" });
     }
 
-    const products = await Product.find({ vendorId: vendorId });
-    if (!products) {
-      return res.status(404).send({ status: 'error', message: 'No products found' });
+    // Fetch products with populated category and subcategory
+    const products = await Product.find({ vendorId })
+      .populate({ path: "category", select: "name" }) // Populate category name
+      .populate({ path: "subcategory", select: "name" }) // Populate subcategory name
+      .exec();
+
+    // Handle no products found
+    if (!products.length) {
+      return res.status(404).send({ status: "error", message: "No products found" });
     }
 
-    res.send({ status: 'ok', data: products });
+    // Return products
+    res.send({ status: "ok", data: products });
   } catch (error) {
-    console.error('Error fetching products:', error);
-    res.status(500).send({ status: 'error', message: 'Internal server error' });
+    console.error("Error fetching products:", error);
+    res.status(500).send({ status: "error", message: "Internal server error" });
   }
 });
 
@@ -2681,7 +2695,6 @@ app.post('/verify-token/:token', async (req, res) => {
 
 
 
-//get main category 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

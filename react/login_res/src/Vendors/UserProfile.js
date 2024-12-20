@@ -11,6 +11,14 @@ import percentageimage1 from '../icons/percentageimage1.png';
 const UpdateProfileVendor = () => {
   const { vendorId } = useParams();
   const navigate = useNavigate();
+  const handleLogout = () => {
+   
+    localStorage.removeItem('vendortoken'); 
+    
+
+    
+    navigate('/login');
+};
   const [vendorData, setVendorData] = useState({
     fname: '',
     lname: '',
@@ -163,6 +171,12 @@ const UpdateProfileVendor = () => {
             <ul className='VendorList'>
             <li className='list'><Link to="/Vendor/MyOrders" className='listout listsidebar'><i className="fa fa-laptop sidebaricon"></i>My Orders</Link></li>
           </ul>
+       
+          <ul className='VendorList'>
+            <li className='list'><Link to="/Vendor/Websitepage" className='listout'><i className="fa fa-laptop sidebaricon"></i>My Website</Link></li>
+          </ul>
+          
+         
           </ul>
           <img 
         src={infogif} 

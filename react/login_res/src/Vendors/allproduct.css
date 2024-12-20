@@ -84,6 +84,20 @@ background: white;
     background: rgb(224, 242, 246);
     color: rgb(29, 104, 141);
 }
+.subcategory-items{
+  padding: 3px 10px;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  border-radius: 14px;
+  display: inline-flex
+;
+  align-items: center;
+  width: auto;
+  background: rgb(243 191 203);
+  color: rgb(96 0 0);
+}
+
 .product-details{
   width: calc(100% - 100px);
   text-align: left;
